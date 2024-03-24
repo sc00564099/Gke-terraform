@@ -18,7 +18,7 @@ variable "stage" {
 
 variable "project_id" {
   type        = string
-  default     = "nonprod-plat-test"
+  default     = "project-name"
   description = "The ID of the project to create resources in"
 }
 
@@ -64,13 +64,13 @@ variable "gke_name" {
 
 variable "network_name" {
   type        = string
-  default     = "projects/corp-nonprod/global/networks/nonprod-vpc"
+  default     = "projects/proejct-name/global/networks/network-name"
   description = "The name of the VPC network to which the cluster is connected."
 }
 
 variable "subnet_name" {
   type        = string
-  default     = "projects/corp-nonprod/regions/us-east4/subnetworks/nonprod-default-sn"
+  default     = "projects/project-name/regions/us-east4/subnetworks/subnetwork-name"
   description = "The name of the VPC subnet in which the cluster's instances are launched."
 }
 
@@ -159,7 +159,7 @@ variable "account_type" {
 
 variable "host_project_id" {
   type        = string
-  default     = "corp-nonprod"
+  default     = "host-project-name"
   description = "The ID of the project to create resources in"
 }
 
