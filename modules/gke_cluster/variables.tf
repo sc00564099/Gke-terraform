@@ -81,12 +81,8 @@ variable "master_authorized_networks_cidr_blocks" {
   type = list(map(string))
   default = [
     {
-      # External network that can access Kubernetes master through HTTPS. Must
-      # be specified in CIDR notation. This block should allow access from any
-      # address, but is given explicitly to prevent Google's defaults from
-      # fighting with Terraform.
-      cidr_block = "0.0.0.0/0"     
-      # Field for users to identify CIDR blocks.
+     
+      cidr_block = "0.0.0.0/0" 
       display_name = "default"
     },
   ]
