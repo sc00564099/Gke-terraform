@@ -15,15 +15,15 @@ locals {
 
 }
 data "google_compute_network" "network" {
-  name     = "nonprod-vpc"
-  project = "corp-nonprod"
+  name     = "network -name"
+  project = "project-name"
 }
 
 
 data "google_compute_subnetwork" "subnetwork" {
-  name    = "nonprod-default-sn"
+  name    = "subnetwork-name"
   network = data.google_compute_network.network.self_link
-  project = "corp-nonprod"
+  project = "project-name"
   secondary_ip_range {
     range_name    = "test-pods-2"
   }
@@ -72,8 +72,8 @@ resource "google_container_cluster" "gke_cluster" {
     }
   }
 
-  network    = var.account_type == "internal" ? "projects/corp-nonprod/global/networks/nonprod-vpc" : var.network_name
-  subnetwork = var.account_type == "internal" ? "projects/corp-nonprod/regions/us-east4/subnetworks/nonprod-default-sn" : var.subnet_name
+  network    = var.account_type == "internal" ? "projects/project-name/global/networks/network -name" : var.network_name
+  subnetwork = var.account_type == "internal" ? "projects/project-name/regions/us-east4/subnetworks/subnetwork-name" : var.subnet_name
 
   logging_service    = "logging.googleapis.com/kubernetes"
   monitoring_service = "monitoring.googleapis.com/kubernetes"
