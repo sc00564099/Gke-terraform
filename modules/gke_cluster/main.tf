@@ -22,15 +22,8 @@ data "google_compute_network" "network" {
 
 data "google_compute_subnetwork" "subnetwork" {
   name    = "subnetwork-name"
-  network = data.google_compute_network.network.self_link
   project = "project-name"
-  secondary_ip_range {
-    range_name    = "test-pods-2"
-  }
-  secondary_ip_range {
-    range_name    = "test-services-2"
-  }
-}
+ }
 
 resource "google_container_cluster" "gke_cluster" {
   name               = module.label.id 
